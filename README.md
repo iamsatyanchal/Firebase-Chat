@@ -10,10 +10,10 @@ In the Firebase console click on Add Project and call it firebasewebchat.
 
 The application that we are going to build uses the whole set of Firebase products available on the web:
 
-Firebase Authentication to easily let your users sign-in your app.
+*Firebase Authentication to easily let your users sign-in your app.
 The Firebase Realtime Database to save structured data on the Cloud and get instant notification when the data is updated.
 Cloud Storage for Firebase to save files in the cloud.
 Firebase Hosting to host and serve your static assets.
 Firebase Cloud Messaging to send push notifications and display browser popup notifications.
-Some of these products need special configuration or need to be enabled using the Firebase console:
+Some of these products need special configuration or need to be enabled using the Firebase console:*
 
