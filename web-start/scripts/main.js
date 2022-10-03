@@ -173,39 +173,7 @@ var MESSAGE_TEMPLATE =
 var LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a';
 
 // Displays a Message in the UI.
-function displayMessage(key, name, text, picUrl, imageUrl) {
-  var div = document.getElementById(key);
-  // If an element for that message does not exists yet we create it.
-  if (!div) {
-    var container = document.createElement('div');
-    container.innerHTML = MESSAGE_TEMPLATE;
-    div = container.firstChild;
-    div.setAttribute('id', key);
-    messageListElement.appendChild(div);
-  }
-  if (picUrl) {
-    div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
-  }
-  div.querySelector('.name').textContent = name;
-  var messageElement = div.querySelector('.message');
-  if (text) { // If the message is text.
-    messageElement.textContent = text;
-    // Replace all line breaks by <br>.
-    messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
-  } else if (imageUrl) { // If the message is an image.
-    var image = document.createElement('img');
-    image.addEventListener('load', function() {
-      messageListElement.scrollTop = messageListElement.scrollHeight;
-    });
-    image.src = imageUrl + '&' + new Date().getTime();
-    messageElement.innerHTML = '';
-    messageElement.appendChild(image);
-  }
-  // Show the card fading-in and scroll to view the new message.
-  setTimeout(function() {div.classList.add('visible')}, 1);
-  messageListElement.scrollTop = messageListElement.scrollHeight;
-  messageInputElement.focus();
-}
+function displayMessage(e,t,n,r,i){var l=document.getElementById(e);if(!l){var s=document.createElement("div");s.innerHTML=MESSAGE_TEMPLATE,(l=s.firstChild).setAttribute("id",e),messageListElement.appendChild(l)}r&&(l.querySelector(".pic").style.backgroundImage="url("+r+")"),l.querySelector(".name").textContent=t;var a=l.querySelector(".message");if(n)a.textContent=n,a.innerHTML=a.innerHTML.replace(/\n/g,"<br>");else if(i){var c=document.createElement("img");c.addEventListener("load",function(){messageListElement.scrollTop=messageListElement.scrollHeight}),c.src=i+"&"+new Date().getTime(),a.innerHTML="",a.appendChild(c)}setTimeout(function(){l.classList.add("visible")},1),messageListElement.scrollTop=messageListElement.scrollHeight,messageInputElement.focus()}
 
 // Enables or disables the submit button depending on the values of the input
 // fields.
@@ -242,6 +210,11 @@ var userNameElement = document.getElementById('user-name');
 var signInButtonElement = document.getElementById('sign-in');
 var signOutButtonElement = document.getElementById('sign-out');
 var signInSnackbarElement = document.getElementById('must-signin-snackbar');
+var wwuserPicElement = document.getElementById('wwuser-pic');
+var wwserNameElement = document.getElementById('wwuser-name');
+var wwwsignInButtonElement = document.getElementById('wwwsign-in');
+var wwwwsignOutButtonElement = document.getElementById('wwwwsign-out');
+var wwwwwsignInSnackbarElement = document.getElementById('wwwwmust-signin-snackbar');
 
 // Saves message on form submit.
 messageFormElement.addEventListener('submit', onMessageFormSubmit);
